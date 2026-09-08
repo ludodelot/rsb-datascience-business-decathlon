@@ -63,14 +63,21 @@ Final exam of the Data Science for Business course, framed as a real CRM/retail 
 
 ## 🔄 Method Pipeline
 
-```mermaid
-flowchart LR
-    A[Raw survey<br/>151 x 17] --> B[Strip column names<br/>+ group-based imputation]
-    B --> C[Drop rows with<br/>missing gender → 140]
-    C --> D[EDA by continent:<br/>order value, loyalty, satisfaction]
-    D --> E[Encode categoricals<br/>+ train/test split]
-    E --> F[Random Forest<br/>premium-member classifier]
-```
+<div align="center">
+<img src="figures/pipeline.gif" alt="Pipeline: import & load, clean & impute, EDA by continent, visualize, encode features, random forest model, evaluate" width="100%"/>
+</div>
+
+Each stage maps to a real section of `analysis.ipynb`:
+
+| # | Stage | What happens |
+|:---:|---|---|
+| 01 | **Import & Load** | Read the 151 × 17 raw survey into pandas |
+| 02 | **Clean & Impute** | Strip column names, group-based imputation, then drop the 11 rows with missing `gender` (→ 140 rows) |
+| 03 | **EDA by Continent** | Order value, loyalty rate, recommendation rate and satisfaction compared across America / Asia / Europe |
+| 04 | **Visualize** | Bar, pie, and histogram views — including the order-amount bin distribution |
+| 05 | **Encode Features** | Categorical fields (gender, continent, channel, product…) converted to numeric |
+| 06 | **Model** | Random Forest classifier predicting premium membership |
+| 07 | **Evaluate** | Accuracy, precision/recall/F1, ROC AUC, confusion matrix, feature importances |
 
 ## 📈 Results
 
